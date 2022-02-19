@@ -1,0 +1,52 @@
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.nav-text {
+  font-size: 16px;
+}
+
+.search-input {
+  background-color: #212529;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+}
+
+.page-header {
+  padding: 1rem 1rem 1rem 1.5rem;
+  background: #191c1f;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+}
+
+.action-btn {
+  padding-left: 0 !important;
+}
+
+.add-btn {
+  font-size: 35px !important;
+  color: #fff;
+}
+
+.sub-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.policy-table-wrapper {
+  padding: 1rem;
+}
+
+.edit-btn {
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.delete-btn {
+  color: #fff;
+}

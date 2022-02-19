@@ -1,0 +1,153 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 p-3 nav-text" href="#">ABC Insurance</a>
+</nav>
+
+<div class="container-fluid">
+  <div class="d-flex">
+    <app-sidebar class="col-md-2"></app-sidebar>
+
+    <div class="container-fluid">
+      <h1 class="page-header">Policy List</h1>
+
+      <div class="d-flex justify-content-around p-3" *ngIf="loading; else tableView">
+        <div class="spinner-grow text-dark" role="status"></div>        
+        <span>Loading results...</span>
+        <div class="spinner-grow text-dark" role="status"></div>
+      </div>
+
+      <ng-template #tableView>
+        <div class="row policy-table-wrapper">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-danger">
+                <div class="sub-container">
+                  <!-- <p class="card-category">
+                  Enter text below to search any specific record
+                </p> -->
+                  <input
+                    class="search-input"
+                    matInput
+                    (keyup)="applyFilter($event.target)"
+                    placeholder="Search records here"
+                  />
+                  <a
+                    [routerLink]="['/add-edit-policy']"
+                    mat-button
+                    mat-raised-button
+                    type="button"
+                    matTooltip="Add New Policy"
+                    class="btn btn-link btn-sm btn-just-icon"
+                  >
+                    Add new +
+                  </a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="mat-elevation-z8">
+                  <table mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="Policy_id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Policy Id
+                      </th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Policy_id }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Date_of_Purchase">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Date of Purchase
+                      </th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Date_of_Purchase }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Customer_id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Customer Id
+                      </th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Customer_id }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Fuel">
+                      <th mat-header-cell *matHeaderCellDef>Fuel type</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Fuel }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Premium">
+                      <th mat-header-cell *matHeaderCellDef>Premium</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Premium }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Customer_Income_group">
+                      <th mat-header-cell *matHeaderCellDef>
+                        Customer Income Group
+                      </th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Customer_Income_group }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Customer_Region">
+                      <th mat-header-cell *matHeaderCellDef>Customer Region</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element.Customer_Region }}
+                      </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Actions">
+                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                      <mat-cell *matCellDef="let row">
+                        <td>
+                          <a
+                            [routerLink]="['/add-edit-policy', row]"
+                            mat-button
+                            mat-raised-button
+                            type="button"
+                            matTooltip="Edit Policy"
+                            class="btn btn-primary btn-link btn-sm edit-btn"
+                          >
+                            Edit
+                          </a>
+                          <button
+                            (click)="deleteItem(row.Policy_id)"
+                            mat-raised-button
+                            type="button"
+                            matTooltip="Remove Policy"
+                            class="btn btn-danger btn-link btn-sm delete-btn"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </mat-cell>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr
+                      mat-row
+                      *matRowDef="let row; columns: displayedColumns"
+                    ></tr>
+                  </table>
+
+                  <mat-paginator
+                    [pageSizeOptions]="[10, 20, 50, 100]"
+                    showFirstLastButtons
+                    aria-label="Select page of periodic elements"
+                  >
+                  </mat-paginator>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
