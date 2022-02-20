@@ -30,6 +30,7 @@ export class PolicyListComponent implements AfterViewInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
+  confirmation: boolean = false;
 
   constructor(
     private customerDataService: CustomerDataService,
@@ -42,7 +43,6 @@ export class PolicyListComponent implements AfterViewInit {
         this.insuranceRecords
       );
     });
-    
   }
 
   ngAfterViewInit() {
@@ -51,7 +51,7 @@ export class PolicyListComponent implements AfterViewInit {
       this.loading = false;
     }, 100);
     setTimeout(() => {
-    this.dataSource.paginator = this.paginator;
+      this.dataSource.paginator = this.paginator;
     }, 500);
   }
 
@@ -63,6 +63,10 @@ export class PolicyListComponent implements AfterViewInit {
   }
 
   deleteItem(id: number) {
+    this.confirmation = true;
     this.customerDataService.removePolicy(id);
+    setTimeout(() => {
+      this.confirmation = false;
+    }, 5000);
   }
 }

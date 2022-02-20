@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-// import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import InsuranceData from "../../assets/json/Data Set.json";
 import { CustomerData } from "../models";
@@ -12,9 +11,6 @@ export class CustomerDataService {
   policyData = InsuranceData;
   regions = ["East", "West", "North", "South"];
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
-  // constructor(private _router: Router) {
-  // }
 
   getInsuranceData() {
     return this.customerData.asObservable();

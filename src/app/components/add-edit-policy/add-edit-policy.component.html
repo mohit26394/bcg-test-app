@@ -1,0 +1,144 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 p-3 nav-text" href="#"
+    >ABC Insurance</a
+  >
+</nav>
+
+<div class="container-fluid">
+  <div class="d-flex">
+    <div class="container-fluid">
+      <h1 class="page-header">{{ submitButtonText }}</h1>
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row m-2">
+            <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-success">
+                  <h4 class="card-title">Policy details</h4>
+                </div>
+                <div class="card-body">
+                  <form [formGroup]="policyForm">
+                    <div class="row m-2">
+                      <div class="col-md-5">
+                        <label for="firstName">Policy Id</label>
+                        <input
+                          class="form-control"
+                          placeholder="Policy Id"
+                          type="text"
+                          id="Policy_id"
+                          name="Policy_id"
+                          formControlName="Policy_id"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="firstName">Date of Purchase</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          id="Date_of_Purchase"
+                          name="Date_of_Purchase"
+                          placeholder="Date of Purchase"
+                          formControlName="Date_of_Purchase"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label for="firstName">Customer Id</label>
+                        <input
+                          class="form-control"
+                          id="Customer_id"
+                          name="Customer_id"
+                          placeholder="Customer Id"
+                          type="text"
+                          formControlName="Customer_id"
+                        />
+                      </div>
+                    </div>
+                    <div class="row m-2">
+                      <div class="col-md-6">
+                        <label for="firstName">Fuel type</label>
+                        <input
+                          class="form-control"
+                          placeholder="Fuel type"
+                          type="text"
+                          id="Fuel"
+                          name="Fuel"
+                          formControlName="Fuel"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="firstName">Vehicle Segment</label>
+                        <input
+                          class="form-control"
+                          placeholder="Vehicle Segment"
+                          type="text"
+                          id="VEHICLE_SEGMENT"
+                          name="VEHICLE_SEGMENT"
+                          formControlName="VEHICLE_SEGMENT"
+                        />
+                      </div>
+                    </div>
+                    <div class="row m-2">
+                      <div class="col-md-12">
+                        <label for="firstName">Premium</label>
+                        <input
+                          class="form-control"
+                          placeholder="Premium"
+                          type="text"
+                          id="Premium"
+                          name="Premium"
+                          formControlName="Premium"
+                        />
+                      </div>
+                    </div>
+                    <div class="row m-2">
+                      <div class="col-md-4">
+                        <label for="firstName">Customer Income group</label>
+                        <input
+                          class="form-control"
+                          placeholder="Customer Income group"
+                          type="text"
+                          id="Customer_Income_group"
+                          name="Customer_Income_group"
+                          formControlName="Customer_Income_group"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label for="firstName">Region</label>
+                        <input
+                          class="form-control"
+                          placeholder="Region"
+                          type="text"
+                          id="Customer_Region"
+                          name="Customer_Region"
+                          formControlName="Customer_Region"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      (click)="onBackClick()"
+                      mat-raised-button
+                      type="submit"
+                      class="btn btn-secondary pull-left m-4"
+                    >
+                      Back
+                    </button>
+                    <button
+                      [disabled]="policyForm.invalid"
+                      (click)="onSubmit()"
+                      mat-raised-button
+                      type="submit"
+                      class="btn btn-danger pull-right m-4"
+                    >
+                      {{ submitButtonText }}
+                    </button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

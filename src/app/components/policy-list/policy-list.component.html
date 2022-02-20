@@ -9,6 +9,10 @@
     <div class="container-fluid">
       <h1 class="page-header">Policy List</h1>
 
+      <div *ngIf="confirmation" class="alert alert-danger" role="alert">
+        Alert! Record deleted successfully!
+      </div>
+
       <div class="d-flex justify-content-around p-3" *ngIf="loading; else tableView">
         <div class="spinner-grow text-dark" role="status"></div>        
         <span>Loading results...</span>
@@ -112,7 +116,7 @@
                             mat-raised-button
                             type="button"
                             matTooltip="Edit Policy"
-                            class="btn btn-primary btn-link btn-sm edit-btn"
+                            class="btn btn-dark btn-link btn-sm edit-btn"
                           >
                             Edit
                           </a>
