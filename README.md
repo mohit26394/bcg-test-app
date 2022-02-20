@@ -1,3 +1,11 @@
+# Problem statement Part A:
+
+CRUD ops and search functionality covered in policy-list component. 
+
+# Problem statement Part B:
+
+Regional and cumulative graph visualisation covered in dashboard page. 
+
 # TestInsurance
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
